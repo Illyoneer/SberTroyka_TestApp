@@ -26,8 +26,7 @@ class WalksRecyclerAdapter : ListAdapter<Data, WalksViewHolder>(WalksDiffCallbac
 
         with(holder.walksRecyclerItem) {
             frescoImageView.setImageURI(uri)
-            titleText.text = itemElement.title
-            duration.text = itemElement.duration.toString() + " мин."
+            title.text = itemElement.title
 
             root.setOnClickListener {
                 onHolderViewClickListener?.invoke(itemElement)

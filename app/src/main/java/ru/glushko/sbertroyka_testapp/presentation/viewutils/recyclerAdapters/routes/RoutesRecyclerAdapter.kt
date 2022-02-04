@@ -1,5 +1,6 @@
 package ru.glushko.sbertroyka_testapp.presentation.viewutils.recyclerAdapters.routes
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
@@ -14,11 +15,13 @@ class RoutesRecyclerAdapter : ListAdapter<Route, RoutesAuthorsViewHolder>(Routes
         return RoutesAuthorsViewHolder(binding)
     }
 
+    @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holderRoutes: RoutesAuthorsViewHolder, position: Int) {
         val itemElement = getItem(position)
 
         with(holderRoutes.routesRecyclerItem) {
-            routePointText.text = itemElement.title
+            stepText.text = itemElement.title
+            stepNumber.text = "${position + 1}"
         }
     }
 }

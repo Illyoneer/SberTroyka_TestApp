@@ -39,8 +39,8 @@ class WalkInfoFragment : Fragment() {
         super.onStart()
         _mainViewModel.localData.observe(viewLifecycleOwner) {
             (activity as MainActivity).supportActionBar?.title = it.title
-            _walkInfoFBinding.test.text = it.description
-            _walkInfoFBinding.durationTextInfo.text = it.duration.toString()
+            _walkInfoFBinding.descriptionText.text = it.description
+            _walkInfoFBinding.walkTime.text = it.duration.toString()
             _authorsRecyclerAdapter.submitList(it.authors)
             _routesRecyclerAdapter.submitList(it.routes)
         }

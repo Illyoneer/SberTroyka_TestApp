@@ -1,7 +1,6 @@
 package ru.glushko.sbertroyka_testapp.presentation.fragments
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,7 +35,6 @@ class WalksFragment : Fragment() {
     override fun onStart() {
         super.onStart()
         _mainViewModel.localDataList.observe(viewLifecycleOwner) {
-            Log.e("API", "suck")
             _walksRecyclerAdapter.submitList(it.data)
         }
     }
@@ -49,7 +47,7 @@ class WalksFragment : Fragment() {
     private fun setupOnHolderViewClick(walksRecyclerAdapter: WalksRecyclerAdapter) {
         walksRecyclerAdapter.onHolderViewClickListener = { data ->
             _mainViewModel.localData.postValue(data)
-            (activity as MainActivity).supportFragmentManager
+            parentFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragment_container, WalkInfoFragment())
                 .addToBackStack("info")
