@@ -6,7 +6,7 @@ import ru.glushko.sbertroyka_testapp.presentation.viewmodels.MainViewModel
 
 
 val presentationModule = module {
-    /*viewModel {
-        MainViewModel()
-    }*/
+    viewModel {
+        MainViewModel(_getAllDataUseCase = get())
+    }
 }

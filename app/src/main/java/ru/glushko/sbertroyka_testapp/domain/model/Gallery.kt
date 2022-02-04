@@ -1,8 +1,6 @@
 package ru.glushko.sbertroyka_testapp.domain.model
 
 data class Gallery(
-    val caption: Any,
-    val ordering: Int,
-    val type: String,
-    val value: List<String>
+    val ordering: Int, //Очередность изображений
+    val value: List<String> //Ссылки на изображения
 )
