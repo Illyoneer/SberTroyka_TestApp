@@ -22,10 +22,8 @@ class WalksRecyclerAdapter : ListAdapter<Data, WalksViewHolder>(WalksDiffCallbac
     override fun onBindViewHolder(holder: WalksViewHolder, position: Int) {
         val itemElement = getItem(position)
 
-        val uri = Uri.parse(itemElement.img)
-
         with(holder.walksRecyclerItem) {
-            frescoImageView.setImageURI(uri)
+            frescoImageView.setImageURI(Uri.parse(itemElement.img))
             title.text = itemElement.title
 
             root.setOnClickListener {

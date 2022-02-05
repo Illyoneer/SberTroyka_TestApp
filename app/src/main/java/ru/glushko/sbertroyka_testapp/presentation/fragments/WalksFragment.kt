@@ -14,7 +14,9 @@ import ru.glushko.sbertroyka_testapp.presentation.viewutils.recyclerAdapters.wal
 class WalksFragment : Fragment() {
 
     private lateinit var _walksFBinding: FragmentWalksBinding
+
     private val _walksRecyclerAdapter = WalksRecyclerAdapter()
+
     private val _mainViewModel: MainViewModel by sharedViewModel()
 
     override fun onCreateView(
@@ -43,8 +45,10 @@ class WalksFragment : Fragment() {
 
     private fun setupOnHolderViewClick(walksRecyclerAdapter: WalksRecyclerAdapter) {
         walksRecyclerAdapter.onHolderViewClickListener = { data ->
-            _mainViewModel.selectedWalkData.postValue(data)
-            _mainViewModel.selectedWalkRoutes.postValue(data.routes)
+            with(_mainViewModel) {
+                selectedWalkData.postValue(data)
+                selectedWalkRoutes.postValue(data.routes)
+            }
             parentFragmentManager
                 .beginTransaction()
                 .replace(R.id.fragment_container, WalkInfoFragment())

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -27,20 +26,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <ImageButton
+                android:id="@+id/walk_info_close_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:src="@drawable/close_icon"
+                android:contentDescription="@string/todo" />
+
             <TextView
                 android:id="@+id/walk_info_title"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10dp"
+                android:layout_marginStart="16dp"
                 android:ellipsize="marquee"
+                android:textColor="@color/black"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:textColor="@color/black"
                 tools:text="Музей" />
         </LinearLayout>
 
         <androidx.core.widget.NestedScrollView
-            android:id="@+id/scroll_view"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
 
@@ -55,8 +61,8 @@
                     android:layout_marginStart="16dp"
                     android:layout_marginTop="16dp"
                     android:layout_marginEnd="16dp"
-                    android:textSize="18sp"
                     android:textColor="@color/black"
+                    android:textSize="18sp"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="parent"
@@ -93,7 +99,7 @@
                             app:autoSizeTextType="uniform" />
 
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/excursion_type_icon"
+                            android:id="@+id/walk_type_icon"
                             android:layout_width="25dp"
                             android:layout_height="26dp"
                             android:gravity="center"
@@ -135,19 +141,19 @@
                             app:autoSizeMinTextSize="9sp"
                             app:autoSizeTextType="uniform" />
 
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:id="@+id/excursion_author_icon"
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/walk_author_icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:gravity="center"
-                            android:src="@drawable/project_icon" />
+                            app:failureImage="@drawable/failure1" />
 
                         <androidx.appcompat.widget.AppCompatTextView
                             android:id="@+id/walk_author"
                             android:layout_width="70dp"
                             android:layout_height="wrap_content"
                             android:gravity="center"
-                            android:text="Ильюшин"
+                            android:text="@string/ilyushin_author_text"
                             android:textColor="@color/black"
                             android:textSize="13sp"
                             app:autoSizeMaxTextSize="13sp"

@@ -18,10 +18,9 @@ class GalleryRecyclerAdapter : ListAdapter<String, GalleryViewHolder>(GalleryDif
     @SuppressLint("SetTextI18n")
     override fun onBindViewHolder(holderRoutes: GalleryViewHolder, position: Int) {
         val itemElement = getItem(position)
-        val uri = Uri.parse(itemElement)
 
         with(holderRoutes.galleryRecyclerItem) {
-            frescoImageView.setImageURI(uri)
+            frescoImageView.setImageURI(Uri.parse(itemElement))
         }
     }
 }

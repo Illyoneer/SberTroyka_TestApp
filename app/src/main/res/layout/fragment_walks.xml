@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.fragments.WalksFragment"
-    android:background="@drawable/coordinator_background">
+    android:background="@drawable/coordinator_background"
+    tools:context=".presentation.fragments.WalksFragment">
 
     <LinearLayout
         android:id="@+id/walks_title_view"
@@ -23,11 +23,11 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:textColor="@color/black"
             android:ellipsize="marquee"
+            android:text="@string/walks_title_text"
+            android:textColor="@color/black"
             android:textSize="22sp"
-            android:textStyle="bold"
-            android:text="@string/walks_title_text" />
+            android:textStyle="bold" />
     </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView

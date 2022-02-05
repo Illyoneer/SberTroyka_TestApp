@@ -15,9 +15,6 @@
         android:theme="@style/Theme.SBERTroyka"
         android:windowSoftInputMode="adjustPan|stateAlwaysHidden">
         <activity
-            android:name=".presentation.activity.WalkInfoActivity"
-            android:exported="false" />
-        <activity
             android:name=".presentation.activity.MainActivity"
             android:exported="true">
             <intent-filter>

@@ -4,9 +4,9 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import ru.glushko.sbertroyka_testapp.databinding.FragmentWalkStepsBinding
 import ru.glushko.sbertroyka_testapp.domain.model.Route
@@ -28,27 +28,27 @@ class WalkStepsFragment : Fragment() {
         val countOfSteps = arguments?.getInt(ARG_PARAM1)
 
         val pagerAdapter = StepViewPagerAdapter(this, countOfSteps!!)
-        _walkStepsFBinding.walkStepsViewpager.adapter = pagerAdapter
 
-        _walkStepsFBinding.walkStepsViewpager.registerOnPageChangeCallback(object :
-            ViewPager2.OnPageChangeCallback() {
-            override fun onPageSelected(position: Int) {
-                _walkStepsFBinding.stepTitle.text = _localRoutesList[position].title
-                if (position == countOfSteps - 1)
-                    Toast.makeText(requireContext(), "Вы дошли до конца!", Toast.LENGTH_SHORT)
-                        .show() //TODO: Сделать диалог.
-                super.onPageSelected(position)
-            }
-        })
+        with(_walkStepsFBinding) {
 
-        _walkStepsFBinding.pageNext.setOnClickListener {
-            onNext()
+            walkStepsViewpager.adapter = pagerAdapter
+            walkProgress.max = countOfSteps - 1
+
+            walkStepsViewpager.registerOnPageChangeCallback(object :
+                ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    _walkStepsFBinding.stepTitle.text = _localRoutesList[position].title
+                    _walkStepsFBinding.walkProgress.progress = position
+                    super.onPageSelected(position)
+                }
+            })
+
+            stepsCloseButton.setOnClickListener { requireActivity().onBackPressed() }
+
+            pageNext.setOnClickListener { onNext(countOfSteps) }
+
+            pageBack.setOnClickListener { onBack() }
         }
-
-        _walkStepsFBinding.pageBack.setOnClickListener {
-            onBack()
-        }
-
         return _walkStepsFBinding.root
     }
 
@@ -69,18 +69,31 @@ class WalkStepsFragment : Fragment() {
             _walkStepsFBinding.stepTitle.text = "Здесь ничего нет!"
     }
 
-    private fun onNext() {
-        _walkStepsFBinding.walkProgress.progress++
+    private fun onNext(position: Int) {
         _walkStepsFBinding.walkStepsViewpager.currentItem++
+        if (_walkStepsFBinding.walkStepsViewpager.currentItem == position - 1)
+            showCancelWalkDialog()
     }
 
     private fun onBack() {
-        _walkStepsFBinding.walkProgress.progress--
         _walkStepsFBinding.walkStepsViewpager.currentItem--
     }
 
+    private fun showCancelWalkDialog() {
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle("Вы завершили прогулку")
+            .setMessage("Вы можете пройти закрыть её или пройти ещё раз.")
+            .setPositiveButton("Еще раз") { _, _ ->
+                _walkStepsFBinding.walkStepsViewpager.currentItem = 0
+            }
+            .setNegativeButton("Закрыть") { _, _ ->
+                requireActivity().onBackPressed()
+            }
+            .show()
+    }
+
     companion object {
-        private const val ARG_PARAM1 = "param1"
+        private const val ARG_PARAM1 = "count"
 
         @JvmStatic
         fun newInstance(count: Int) =

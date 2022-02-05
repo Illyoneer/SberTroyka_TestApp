@@ -7,6 +7,7 @@
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/drawable/arrow_downs_vector.xml" value="0.254" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/drawable/back_arrow_icon.xml" value="0.269" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/drawable/circle_icon.xml" value="0.2905" />
+        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/drawable/close_icon.xml" value="0.254" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/drawable/coordinator_background.xml" value="0.269" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/drawable/gradient_background.xml" value="0.269" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/drawable/ic_baseline_arrow_drop_down_24.xml" value="0.269" />
@@ -19,20 +20,24 @@
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/drawable/step_circle_background.xml" value="0.254" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/drawable/stick_background.xml" value="0.2905" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/drawable/walk_icon.xml" value="0.269" />
-        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/activity_main.xml" value="0.1890909090909091" />
+        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/!!!step_recycler_item!!!.xml" value="0.8395784543325527" />
+        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/activity_walk_info.xml" value="0.2625" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/authors_recycler_item.xml" value="0.1" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/fragment_blank.xml" value="0.2625" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/fragment_main.xml" value="0.1890909090909091" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/fragment_routes.xml" value="0.6241217798594848" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/fragment_step.xml" value="0.1" />
-        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/fragment_walk_info.xml" value="0.6180555555555556" />
-        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/fragment_walk_steps.xml" value="0.5" />
+        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/fragment_walk_info.xml" value="0.1" />
+        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/fragment_walk_steps.xml" value="0.1" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/fragment_walks.xml" value="0.1" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/galery_recycler_item.xml" value="0.1" />
+        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/gallery_recycler_item.xml" value="0.1" />
+        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/media_recycler_item.xml" value="0.1" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/routes_recycler_item.xml" value="0.67" />
-        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/step_recycler_item.xml" value="0.5585480093676815" />
+        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/step_recycler_item.xml" value="0.1" />
         <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/layout/walks_recycler_item.xml" value="0.1" />
+        <entry key="..\:/Users/illyo/AndroidStudioProjects/SBERTroyka/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.237" />
       </map>
     </option>
   </component>
