@@ -11,4 +11,6 @@
     <string name="authors_text">Авторы</string>
     <string name="next_button_text">Далее</string>
     <string name="back_button_text">Назад</string>
+    <string name="walks_title_text">Прогулки от метро</string>
+    <string name="start_walk">Начать прогулку</string>
 </resources>

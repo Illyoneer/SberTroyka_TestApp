@@ -13,5 +13,5 @@
     <color name="helper_text">#F68888</color>
     <color name="gray_background">#FF424242</color>
     <color name="background">#303030</color>
-    <color name="secondTextColor">#979797</color>
+    <color name="secondTextColor">#FF9A99A2</color>
 </resources>

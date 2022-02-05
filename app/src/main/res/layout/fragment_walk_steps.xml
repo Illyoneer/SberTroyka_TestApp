@@ -30,9 +30,10 @@
                 android:id="@+id/step_title"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="10.0dip"
+                android:layout_marginStart="10dp"
                 android:ellipsize="marquee"
-                android:textSize="22.0sp"
+                android:textSize="22sp"
+                android:textColor="@color/black"
                 android:textStyle="bold"
                 tools:text="Начало пути" />
         </LinearLayout>
@@ -51,7 +52,6 @@
     <RelativeLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:layout_marginBottom="25dp"
         android:gravity="bottom">
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -61,7 +61,7 @@
             android:background="@color/main">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/excursion_back"
+                android:id="@+id/page_back"
                 style="@style/Widget.AppCompat.Button.Borderless"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -79,13 +79,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:indeterminate="false"
+                android:progressTint="@color/black"
                 android:max="100"
                 android:minWidth="200dp"
                 android:minHeight="50dp"
                 android:progress="0"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@id/page_next"
-                app:layout_constraintStart_toEndOf="@id/excursion_back"
+                app:layout_constraintStart_toEndOf="@id/page_back"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <com.google.android.material.button.MaterialButton
