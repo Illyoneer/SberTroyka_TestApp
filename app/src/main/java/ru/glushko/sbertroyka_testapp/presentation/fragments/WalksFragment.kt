@@ -4,12 +4,14 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import ru.glushko.sbertroyka_testapp.R
 import ru.glushko.sbertroyka_testapp.databinding.FragmentWalksBinding
 import ru.glushko.sbertroyka_testapp.presentation.viewmodels.MainViewModel
 import ru.glushko.sbertroyka_testapp.presentation.viewutils.recyclerAdapters.walks.WalksRecyclerAdapter
+import java.io.IOException
 
 class WalksFragment : Fragment() {
 
@@ -23,9 +25,14 @@ class WalksFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _walksFBinding =  FragmentWalksBinding.inflate(inflater, container, false)
+        _walksFBinding = FragmentWalksBinding.inflate(inflater, container, false)
 
-        _mainViewModel.getAllDataFromAPI()
+
+        try {
+            _mainViewModel.getAllDataFromAPI()
+        } catch (e: IOException) {
+            Toast.makeText(requireContext(), "Ошибка!", Toast.LENGTH_SHORT).show()
+        }
         setupRecyclerView()
 
         return _walksFBinding.root
@@ -51,7 +58,7 @@ class WalksFragment : Fragment() {
             }
             parentFragmentManager
                 .beginTransaction()
-                .replace(R.id.fragment_container, WalkInfoFragment())
+                .add(R.id.fragment_container, WalkInfoFragment())
                 .addToBackStack("info")
                 .commit()
         }
