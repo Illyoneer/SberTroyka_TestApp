@@ -14,4 +14,7 @@
     <string name="start_walk">Начать прогулку</string>
     <string name="ilyushin_author_text">Ильюшин</string>
     <string name="todo">TODO</string>
+    <string name="author_tag">Ilya Glushko</string>
+    <string name="favorite_text">Избранное</string>
+    <string name="recent_text">Недавнее</string>
 </resources>

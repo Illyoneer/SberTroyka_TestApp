@@ -83,6 +83,7 @@ class WalkStepsFragment : Fragment() {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle("Вы завершили прогулку")
             .setMessage("Вы можете пройти закрыть её или пройти ещё раз.")
+            .setCancelable(false)
             .setPositiveButton("Еще раз") { _, _ ->
                 _walkStepsFBinding.walkStepsViewpager.currentItem = 0
             }

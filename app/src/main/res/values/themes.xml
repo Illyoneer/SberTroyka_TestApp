@@ -26,6 +26,7 @@
         <item name="alertDialogStyle">@style/My.Material.AlertDialog.Style</item>>
         <item name="colorSurface">@color/white</item>
         <item name="colorOnSurface">@color/black</item>
+        <item name="android:windowCloseOnTouchOutside">false</item>
     </style>
 
     <style name="My.Material.AlertDialog.Style" parent="MaterialAlertDialog.MaterialComponents">

@@ -35,7 +35,7 @@ class WalkInfoFragment : Fragment() {
         _walkInfoFBinding.startWalkButton.setOnClickListener {
             val walkStepsFragment = WalkStepsFragment.newInstance(_countOfPages)
             parentFragmentManager.beginTransaction()
-                .replace(R.id.fragment_container, walkStepsFragment)
+                .add(R.id.fragment_container, walkStepsFragment)
                 .addToBackStack("start_walk")
                 .commit()
         }
@@ -63,6 +63,10 @@ class WalkInfoFragment : Fragment() {
                 walkTime.text = it.duration.toString()
                 walkAuthor.text = it.authorCompany.title
                 _walkInfoFBinding.walkAuthorIcon.setImageURI(Uri.parse(it.authorCompany.img))
+                if (it.type == "PEDESTRIAN")
+                    walkType.text = "Пешеходная"
+                else
+                    walkType.text = "На транспорте"
             }
             _authorsRecyclerAdapter.submitList(it.authors)
             _routesRecyclerAdapter.submitList(it.routes)
