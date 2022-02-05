@@ -3,4 +3,5 @@ package ru.glushko.sbertroyka_testapp.presentation.viewutils.recyclerAdapters.wa
 import androidx.recyclerview.widget.RecyclerView
 import ru.glushko.sbertroyka_testapp.databinding.WalksRecyclerItemBinding
 
-class WalksViewHolder(val walksRecyclerItem: WalksRecyclerItemBinding) : RecyclerView.ViewHolder(walksRecyclerItem.root)
+class WalksViewHolder(val walksRecyclerItem: WalksRecyclerItemBinding) :
+    RecyclerView.ViewHolder(walksRecyclerItem.root)

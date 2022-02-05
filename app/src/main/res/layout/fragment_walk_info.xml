@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
@@ -11,210 +10,266 @@
     app:behavior_peekHeight="160dp"
     app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".presentation.fragments.WalkInfoFragment">
-
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="@string/route_text"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/constraint_layout_author" />
-
-        <TextView
-            android:id="@+id/description_text"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginTop="8dp"
-            android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Какое-то описание, наверное оно полезно!" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/routes_recycler_view"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView9" />
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical">
 
         <LinearLayout
-            android:id="@+id/walk_linear_view"
+            android:id="@+id/walk_info_title_view"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10.0dip"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:padding="24dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/description_text">
+            app:layout_constraintTop_toTopOf="parent">
 
-            <LinearLayout
+            <ImageButton
+                android:id="@+id/walk_info_close_button"
                 android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:layout_margin="10dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="60dp"
-                    android:layout_height="20dp"
-                    android:gravity="center"
-                    android:text="@string/type_text"
-                    android:textColor="@color/secondTextColor"
-                    android:textSize="11sp"
-                    app:autoSizeMaxTextSize="13sp"
-                    app:autoSizeMinTextSize="9sp"
-                    app:autoSizeTextType="uniform" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/excursion_type_icon"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:gravity="center"
-                    android:src="@drawable/walk_icon" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/walk_type"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/walk_type_text"
-                    android:textSize="13sp"
-                    app:autoSizeMaxTextSize="13sp"
-                    app:autoSizeMinTextSize="9sp"
-                    app:autoSizeTextType="uniform" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="40dp"
-                android:background="?android:attr/listDivider" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:layout_margin="10dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="60dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/project_text"
-                    android:textColor="@color/secondTextColor"
-                    android:textSize="11sp"
-                    app:autoSizeMaxTextSize="13sp"
-                    app:autoSizeMinTextSize="9sp"
-                    app:autoSizeTextType="uniform" />
-
-                <androidx.appcompat.widget.AppCompatImageView
-                    android:id="@+id/excursion_author_icon"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:gravity="center"
-                    android:src="@drawable/project_icon" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/walk_author"
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Ильюшин"
-                    android:textSize="13sp"
-                    app:autoSizeMaxTextSize="13sp"
-                    app:autoSizeMinTextSize="9sp"
-                    app:autoSizeTextType="uniform" />
-            </LinearLayout>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="40dp"
-                android:background="?android:attr/listDivider" />
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="70dp"
-                android:layout_margin="10dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/duration_text"
-                    android:textColor="@color/secondTextColor"
-                    android:textSize="11sp"
-                    app:autoSizeMaxTextSize="13sp"
-                    app:autoSizeMinTextSize="9sp"
-                    app:autoSizeTextType="uniform" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/walk_time"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textSize="22sp"
-                    tools:text="32" />
-
-                <androidx.appcompat.widget.AppCompatTextView
-                    android:layout_width="70dp"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/minutes_text"
-                    android:textSize="13sp"
-                    app:autoSizeMaxTextSize="13sp"
-                    app:autoSizeMinTextSize="9sp"
-                    app:autoSizeTextType="uniform" />
-            </LinearLayout>
-        </LinearLayout>
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraint_layout_author"
-            android:layout_width="0dp"
-            android:layout_height="90dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/walk_linear_view">
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:src="@drawable/close_icon"
+                android:contentDescription="@string/todo" />
 
             <TextView
-                android:id="@+id/textView8"
-                android:layout_width="0dp"
+                android:id="@+id/walk_info_title"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:layout_marginTop="16dp"
-                android:text="@string/authors_text"
-                android:textSize="16sp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:ellipsize="marquee"
+                android:textColor="@color/black"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                tools:text="Музей" />
+        </LinearLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/authors_recycler_view"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:id="@+id/description_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="Какое-то описание, наверное оно полезно!" />
+
+                <LinearLayout
+                    android:id="@+id/walk_linear_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/description_text">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:layout_margin="10dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/type_text"
+                            android:textColor="@color/secondTextColor"
+                            android:textSize="11sp"
+                            app:autoSizeMaxTextSize="13sp"
+                            app:autoSizeMinTextSize="9sp"
+                            app:autoSizeTextType="uniform" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/walk_type_icon"
+                            android:layout_width="25dp"
+                            android:layout_height="26dp"
+                            android:gravity="center"
+                            android:src="@drawable/walk_icon" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/walk_type"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/walk_type_text"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            app:autoSizeMaxTextSize="13sp"
+                            app:autoSizeMinTextSize="9sp"
+                            app:autoSizeTextType="uniform" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="40dp"
+                        android:background="@color/secondTextColor" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:layout_margin="10dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/project_text"
+                            android:textColor="@color/secondTextColor"
+                            android:textSize="11sp"
+                            app:autoSizeMaxTextSize="13sp"
+                            app:autoSizeMinTextSize="9sp"
+                            app:autoSizeTextType="uniform" />
+
+                        <com.facebook.drawee.view.SimpleDraweeView
+                            android:id="@+id/walk_author_icon"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            app:failureImage="@drawable/failure1" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/walk_author"
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/ilyushin_author_text"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            app:autoSizeMaxTextSize="13sp"
+                            app:autoSizeMinTextSize="9sp"
+                            app:autoSizeTextType="uniform" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="40dp"
+                        android:background="@color/secondTextColor" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="70dp"
+                        android:layout_margin="10dp"
+                        android:gravity="center_horizontal"
+                        android:orientation="vertical">
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="fill_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/duration_text"
+                            android:textColor="@color/secondTextColor"
+                            android:textSize="11sp"
+                            app:autoSizeMaxTextSize="13sp"
+                            app:autoSizeMinTextSize="9sp"
+                            app:autoSizeTextType="uniform" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/walk_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/black"
+                            android:textSize="22sp"
+                            tools:text="32" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:layout_width="70dp"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="@string/minutes_text"
+                            android:textColor="@color/black"
+                            android:textSize="13sp"
+                            app:autoSizeMaxTextSize="13sp"
+                            app:autoSizeMinTextSize="9sp"
+                            app:autoSizeTextType="uniform" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textView8"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/authors_text"
+                    android:textColor="@color/secondTextColor"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/walk_linear_view" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/authors_recycler_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView8"
+                    app:layout_constraintVertical_bias="0.0" />
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/route_text"
+                    android:textColor="@color/secondTextColor"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/authors_recycler_view" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/routes_recycler_view"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toTopOf="@+id/start_walk_button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+                <Button
+                    android:id="@+id/start_walk_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:text="@string/start_walk"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

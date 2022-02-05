@@ -18,10 +18,8 @@ class AuthorsRecyclerAdapter : ListAdapter<Author, AuthorsViewHolder>(AuthorsDif
     override fun onBindViewHolder(holder: AuthorsViewHolder, position: Int) {
         val itemElement = getItem(position)
 
-        val uri = Uri.parse(itemElement.img)
-
         with(holder.authorsRecyclerItem) {
-            frescoImageView.setImageURI(uri)
+            frescoImageView.setImageURI(Uri.parse(itemElement.img))
             authorName.text = itemElement.title
             authorDescription.text = itemElement.description
         }

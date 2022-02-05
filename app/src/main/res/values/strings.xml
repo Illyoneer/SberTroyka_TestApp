@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">SBERTroyka</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">SberTroyka</string>
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="project_text">Проект</string>
     <string name="walk_type_text">Пешеходная</string>
@@ -11,4 +10,8 @@
     <string name="authors_text">Авторы</string>
     <string name="next_button_text">Далее</string>
     <string name="back_button_text">Назад</string>
+    <string name="walks_title_text">Прогулки от метро</string>
+    <string name="start_walk">Начать прогулку</string>
+    <string name="ilyushin_author_text">Ильюшин</string>
+    <string name="todo">TODO</string>
 </resources>

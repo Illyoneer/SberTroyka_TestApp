@@ -4,9 +4,8 @@
     xmlns:fresco="http://schemas.android.com/tools"
     android:layout_width="250dp"
     android:layout_height="150dp"
-    android:layout_marginEnd="10dp"
-    app:cardCornerRadius="26dp"
-    app:cardElevation="3dip"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp"
     app:cardPreventCornerOverlap="false"
     app:cardUseCompatPadding="true">
 
@@ -15,16 +14,11 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:scaleType="centerCrop"
+        app:failureImage="@drawable/failure1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:roundedCornerRadius="13dp"
-        app:placeholderImage = "@drawable/gradient_background"
-        app:failureImage="@drawable/failure1"/>
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
+        app:placeholderImage="@drawable/gradient_background" />
 
     <TextView
         android:id="@id/title"
@@ -33,7 +27,7 @@
         android:layout_gravity="bottom"
         android:layout_margin="10dp"
         android:textColor="@color/white"
-        android:textSize="15sp"
+        android:textSize="16sp"
         android:textStyle="bold"
         fresco:text="Дептранс Модерн" />
 </com.google.android.material.card.MaterialCardView>

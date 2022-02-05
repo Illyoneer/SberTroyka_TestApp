@@ -1,6 +1,6 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.SBERTroyka" parent="Theme.MaterialComponents">
+    <style name="Theme.SBERTroyka" parent="Theme.MaterialComponents.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorAccent">@color/main</item>
         <item name="colorOnBackground">@color/gray_background</item>
@@ -14,6 +14,33 @@
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="materialAlertDialogTheme">@style/My.Material.AlertDialog.Theme</item>
         <!-- Customize your theme here. -->
     </style>
+
+
+    <style name="My.Material.AlertDialog.Theme" parent="ThemeOverlay.MaterialComponents.MaterialAlertDialog">
+        <item name="materialAlertDialogTitleTextStyle">
+            @style/My.Material.AlertDialog.Title.Text.Style
+        </item>
+        <item name="alertDialogStyle">@style/My.Material.AlertDialog.Style</item>>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/black</item>
+    </style>
+
+    <style name="My.Material.AlertDialog.Style" parent="MaterialAlertDialog.MaterialComponents">
+        <item name="shapeAppearance">@style/My.Material.AlertDialog.Shape.Style</item>
+    </style>
+
+    <style name="My.Material.AlertDialog.Title.Text.Style" parent="MaterialAlertDialog.MaterialComponents.Title.Text">
+        <item name="android:textColor">@color/main</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="My.Material.AlertDialog.Shape.Style" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">13sp</item>
+    </style>
+
 </resources>
+
