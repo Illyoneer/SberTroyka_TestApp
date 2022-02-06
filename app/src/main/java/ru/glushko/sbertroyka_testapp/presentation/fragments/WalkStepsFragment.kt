@@ -5,18 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import androidx.viewpager2.widget.ViewPager2
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 import ru.glushko.sbertroyka_testapp.databinding.FragmentWalkStepsBinding
 import ru.glushko.sbertroyka_testapp.domain.model.Route
-import ru.glushko.sbertroyka_testapp.presentation.viewmodels.MainViewModel
 import ru.glushko.sbertroyka_testapp.presentation.viewutils.viewPagerAdapters.StepViewPagerAdapter
 
 class WalkStepsFragment : Fragment() {
 
     private lateinit var _walkStepsFBinding: FragmentWalkStepsBinding
-    private val _mainViewModel: MainViewModel by sharedViewModel()
     private lateinit var _localRoutesList: List<Route>
 
     override fun onCreateView(
@@ -25,9 +23,12 @@ class WalkStepsFragment : Fragment() {
     ): View {
         _walkStepsFBinding = FragmentWalkStepsBinding.inflate(inflater, container, false)
 
-        val countOfSteps = arguments?.getInt(ARG_PARAM1)
+        val safeArgs: WalkStepsFragmentArgs by navArgs()
 
-        val pagerAdapter = StepViewPagerAdapter(this, countOfSteps!!)
+        val countOfSteps = safeArgs.countOfPage
+        _localRoutesList = safeArgs.selectedWalkRoutes.toList()
+
+        val pagerAdapter = StepViewPagerAdapter(this, countOfSteps)
 
         with(_walkStepsFBinding) {
 
@@ -50,14 +51,6 @@ class WalkStepsFragment : Fragment() {
             pageBack.setOnClickListener { onBack() }
         }
         return _walkStepsFBinding.root
-    }
-
-    override fun onStart() {
-        super.onStart()
-        _mainViewModel.selectedWalkRoutes.observe(viewLifecycleOwner) {
-            _localRoutesList = it
-        }
-
     }
 
     override fun onResume() {

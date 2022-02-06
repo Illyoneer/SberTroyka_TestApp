@@ -5,9 +5,7 @@ import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import ru.glushko.sbertroyka_testapp.R
 import ru.glushko.sbertroyka_testapp.databinding.ActivityMainBinding
-import ru.glushko.sbertroyka_testapp.presentation.fragments.WalksFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,9 +16,7 @@ class MainActivity : AppCompatActivity() {
 
         _mainActivityBinding = ActivityMainBinding.inflate(layoutInflater)
 
-        if (isOnline(this))
-            directToWalksFragment()
-        else
+        if (!isOnline(this))
             showInternetAlertDialog()
 
         setContentView(_mainActivityBinding.root)
@@ -40,11 +36,5 @@ class MainActivity : AppCompatActivity() {
                 this.finish()
             }
             .show()
-    }
-
-    private fun directToWalksFragment() {
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.fragment_container, WalksFragment())
-            .commit()
     }
 }

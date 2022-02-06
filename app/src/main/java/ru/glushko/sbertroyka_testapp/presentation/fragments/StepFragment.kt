@@ -6,13 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.glushko.sbertroyka_testapp.databinding.FragmentStepBinding
 import ru.glushko.sbertroyka_testapp.domain.model.Gallery
 import ru.glushko.sbertroyka_testapp.domain.model.Media
 import ru.glushko.sbertroyka_testapp.domain.model.Route
 import ru.glushko.sbertroyka_testapp.domain.model.TextContent
-import ru.glushko.sbertroyka_testapp.presentation.viewmodels.MainViewModel
+import ru.glushko.sbertroyka_testapp.presentation.viewmodels.StepViewModel
 import ru.glushko.sbertroyka_testapp.presentation.viewutils.recyclerAdapters.galery.GalleryRecyclerAdapter
 import ru.glushko.sbertroyka_testapp.presentation.viewutils.recyclerAdapters.media.MediaRecyclerAdapter
 
@@ -24,7 +24,7 @@ class StepFragment : Fragment() {
     private lateinit var _localRouteMedia: List<Media>
     private lateinit var _localRoutes: List<Route>
 
-    private val _mainViewModel: MainViewModel by sharedViewModel()
+    private val _stepViewModel: StepViewModel by viewModel()
 
     private val _galleryRecyclerAdapter = GalleryRecyclerAdapter()
     private val _mediaRecyclerAdapter = MediaRecyclerAdapter()
@@ -37,8 +37,7 @@ class StepFragment : Fragment() {
     ): View {
         _stepFBinding = FragmentStepBinding.inflate(inflater, container, false)
 
-        if (arguments?.getInt(ARG_PARAM1) != null)
-            _positionNumber = arguments?.getInt(ARG_PARAM1)!!
+        _positionNumber = requireArguments().getInt(ARG_PARAM1)
 
         setupRecyclersView()
 
@@ -54,7 +53,7 @@ class StepFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        _mainViewModel.selectedWalkRoutes.observe(viewLifecycleOwner) {
+        _stepViewModel.getSelectedRoutes().observe(viewLifecycleOwner) {
             _localRoutes = it
             _localRouteTextContent = it[_positionNumber].textContents
             _localRouteGalleries = it[_positionNumber].galleries

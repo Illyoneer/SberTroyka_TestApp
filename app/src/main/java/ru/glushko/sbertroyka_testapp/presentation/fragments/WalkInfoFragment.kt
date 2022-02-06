@@ -6,10 +6,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import org.koin.androidx.viewmodel.ext.android.sharedViewModel
-import ru.glushko.sbertroyka_testapp.R
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.glushko.sbertroyka_testapp.databinding.FragmentWalkInfoBinding
-import ru.glushko.sbertroyka_testapp.presentation.viewmodels.MainViewModel
+import ru.glushko.sbertroyka_testapp.presentation.viewmodels.WalkInfoViewModel
 import ru.glushko.sbertroyka_testapp.presentation.viewutils.recyclerAdapters.authors.AuthorsRecyclerAdapter
 import ru.glushko.sbertroyka_testapp.presentation.viewutils.recyclerAdapters.routes.RoutesRecyclerAdapter
 
@@ -17,7 +18,7 @@ class WalkInfoFragment : Fragment() {
 
     private lateinit var _walkInfoFBinding: FragmentWalkInfoBinding
 
-    private val _mainViewModel: MainViewModel by sharedViewModel()
+    private val _walkInfoViewModel: WalkInfoViewModel by viewModel()
 
     private val _authorsRecyclerAdapter = AuthorsRecyclerAdapter()
     private val _routesRecyclerAdapter = RoutesRecyclerAdapter()
@@ -32,12 +33,14 @@ class WalkInfoFragment : Fragment() {
 
         setupRecyclersView()
 
+        val safeArgs: WalkInfoFragmentArgs by navArgs()
+
         _walkInfoFBinding.startWalkButton.setOnClickListener {
-            val walkStepsFragment = WalkStepsFragment.newInstance(_countOfPages)
-            parentFragmentManager.beginTransaction()
-                .add(R.id.fragment_container, walkStepsFragment)
-                .addToBackStack("start_walk")
-                .commit()
+            val action = WalkInfoFragmentDirections.actionWalkInfoFragmentToWalkStepsFragment(
+                safeArgs.selectedWalkRoutes,
+                _countOfPages
+            )
+            findNavController().navigate(action)
         }
 
         _walkInfoFBinding.walkInfoCloseButton.setOnClickListener {
@@ -56,7 +59,7 @@ class WalkInfoFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
-        _mainViewModel.selectedWalkData.observe(viewLifecycleOwner) {
+        _walkInfoViewModel.getSelectedData().observe(viewLifecycleOwner) {
             with(_walkInfoFBinding) {
                 walkInfoTitle.text = it.title
                 descriptionText.text = it.description
@@ -70,6 +73,7 @@ class WalkInfoFragment : Fragment() {
             }
             _authorsRecyclerAdapter.submitList(it.authors)
             _routesRecyclerAdapter.submitList(it.routes)
+            _walkInfoViewModel.setSelectedRoutes(it.routes)
             _countOfPages = it.routes.size
         }
     }
