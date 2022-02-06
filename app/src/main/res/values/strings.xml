@@ -17,4 +17,6 @@
     <string name="author_tag">Ilya Glushko</string>
     <string name="favorite_text">Избранное</string>
     <string name="recent_text">Недавнее</string>
+    <string name="media_text">Медиа</string>
+    <string name="gallery_text">Галерея</string>
 </resources>
