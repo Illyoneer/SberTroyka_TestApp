@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/walksFragment">
+
+    <fragment
+        android:id="@+id/walkInfoFragment"
+        android:name="ru.glushko.sbertroyka_testapp.presentation.fragments.WalkInfoFragment"
+        android:label="WalkInfoFragment">
+        <action
+            android:id="@+id/action_walkInfoFragment_to_walkStepsFragment"
+            app:destination="@id/walkStepsFragment" />
+        <argument
+            android:name="selectedWalkRoutes"
+            app:argType="ru.glushko.sbertroyka_testapp.domain.model.Route[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/walkStepsFragment"
+        android:name="ru.glushko.sbertroyka_testapp.presentation.fragments.WalkStepsFragment"
+        android:label="WalkStepsFragment">
+        <argument
+            android:name="selectedWalkRoutes"
+            app:argType="ru.glushko.sbertroyka_testapp.domain.model.Route[]" />
+        <argument
+            android:name="countOfPage"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/walksFragment"
+        android:name="ru.glushko.sbertroyka_testapp.presentation.fragments.WalksFragment"
+        android:label="fragment_walks"
+        tools:layout="@layout/fragment_walks">
+        <action
+            android:id="@+id/action_walksFragment_to_walkInfoFragment"
+            app:destination="@id/walkInfoFragment" />
+    </fragment>
+</navigation>

@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/metro"
     tools:context=".presentation.activity.MainActivity">
 
     <androidx.fragment.app.FragmentContainerView
+        app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior"
         android:id="@+id/fragment_container"
+        app:behavior_peekHeight="80dp"
         android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        app:navGraph="@navigation/main_nav_graph"
         app:defaultNavHost="true" />
-</LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
